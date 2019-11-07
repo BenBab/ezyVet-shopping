@@ -18,3 +18,10 @@ export function minusFromShoppingCart(selectedItem) {
     quantity: -1
   };
 }
+
+export function deleteFromShoppingCart(selectedItem) {
+  return {
+    type: RM_FROM_SHOPPING_CART,
+    storeItem: selectedItem,
+  };
+}

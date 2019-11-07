@@ -46,9 +46,11 @@ export default function shoppingCartReducer(state = initialState, action) {
       };
     }
     case RM_FROM_SHOPPING_CART:
+        const newShoppingList = state.shoppingCartList.filter(i => i._id !== action.storeItem._id) 
         return {
           ...state,
-          shoppingCartList: action.storeList
+          shoppingCartList: newShoppingList,
+          shoppingCartCount: countItemsInCart(newShoppingList)
         };
     default:
       return state;

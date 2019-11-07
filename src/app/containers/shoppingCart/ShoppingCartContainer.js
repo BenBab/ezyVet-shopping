@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
     return {
         addToShoppingCart: (selectedItem) => dispatch(actions.addToShoppingCart(selectedItem)),
         minusFromShoppingCart: (selectedItem) => dispatch(actions.minusFromShoppingCart(selectedItem)),
-
+        deleteFromShoppingCart:(selectedItem) => dispatch(actions.deleteFromShoppingCart(selectedItem))
     };
   };
 

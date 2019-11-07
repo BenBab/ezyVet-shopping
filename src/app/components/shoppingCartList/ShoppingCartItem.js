@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { Flex, Container} from '../UI/wrappers'
 
-function ShoppingCartItem({ name, img, quantity, price, item, addToShoppingCart, minusFromShoppingCart }) {
+function ShoppingCartItem({ name, img, quantity, price, item, addToShoppingCart, minusFromShoppingCart, deleteFromShoppingCart }) {
     const parsedQuantity = quantity <= 0 ? 0 : quantity
 
     return (
@@ -29,7 +29,7 @@ function ShoppingCartItem({ name, img, quantity, price, item, addToShoppingCart,
                     <small style={{fontSize:'10px'}}>Price</small>
                 </Container>
             </Flex>
-            
+            <DeleteIcon className='fas fa-times-circle' onClick={() => deleteFromShoppingCart(item)}/>
         </CartItemWrapper>
     );
 }
@@ -37,6 +37,7 @@ function ShoppingCartItem({ name, img, quantity, price, item, addToShoppingCart,
 export default ShoppingCartItem;
 
 const CartItemWrapper = styled.div`
+    position: relative;
     display: flex;
     box-shadow: 1px 1px 20px 1px lightgrey;
     margin: 10px;
@@ -67,4 +68,16 @@ const ChangeQuantityIcon = styled.i`
         color: ${props => props.disabled ? 'rgba(0,0,0,0.3)' : '#0056b3'};
         cursor: ${props => props.disabled ? 'initial' : 'pointer'};
     }
+`;
+
+const DeleteIcon = styled.i`
+    position:absolute;
+    right: 0; 
+    color: rgba(0,0,0,0.4);
+
+    &:hover{
+        cursor: pointer;
+        color: red;
+    }
+
 `;
