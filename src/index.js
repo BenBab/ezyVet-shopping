@@ -7,11 +7,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 // import * as serviceWorker from './serviceWorker';
 
 import { createStore, applyMiddleware } from 'redux';
-import { loadToDoList } from './store/actions';
+import { loadStoreFront } from './store/actions';
 import rootReducer from './store/reducers/index';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './store/sagas'
 
+import { BrowserRouter } from 'react-router-dom';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -21,11 +22,13 @@ const store = createStore(rootReducer, composeWithDevTools(
 
 sagaMiddleware.run(rootSaga);
 
-store.dispatch(loadToDoList());
+store.dispatch(loadStoreFront());
 
 render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

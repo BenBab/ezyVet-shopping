@@ -1,1 +1,2 @@
-export { addToDo, loadToDoList } from './toDoActions'
+export { addToDo, loadStoreFront } from './storeFrontActions'
+export { addToShoppingCart } from './shoppingCartActions'

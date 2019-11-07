@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 
-import toDoReducer from './toDoReducer'
+import storeReducer from './storeFrontReducer'
+import shoppingCartReducer from './shoppingCartReducer'
 
 
 export default combineReducers({
-    toDo : toDoReducer
+    store : storeReducer,
+    shoppingCart: shoppingCartReducer
 })
