@@ -23,6 +23,10 @@ const updateShoppingList = (state, action) => {
   return newShoppingList
 }
 
+const countItemsInCart = (list) => {
+  return list.reduce((acc, curr) => { return acc + curr.quantity } ,0)
+}
+
 export default function shoppingCartReducer(state = initialState, action) {
     switch (action.type) {
     case ADD_TO_SHOPPING_CART:
@@ -31,7 +35,7 @@ export default function shoppingCartReducer(state = initialState, action) {
         return {
             ...state,
             shoppingCartList: newShoppingList,
-            shoppingCartCount: newShoppingList.length
+            shoppingCartCount: countItemsInCart(newShoppingList)
         };
 
     case RM_FROM_SHOPPING_CART:

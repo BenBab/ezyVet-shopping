@@ -5,8 +5,9 @@ export function Flex(props) {
     return (
         <FlexBox 
             justifyContent={props.justifyContent || 'initial'}
-            alighItems={props.justifyContent || 'center'}
+            alighItems={props.alighItems || 'center'}
             margin={props.margin || 0}
+            width={props.width || 'auto'}
         >
             {props.children}
         </FlexBox>
@@ -16,6 +17,8 @@ export function Flex(props) {
 const FlexBox = styled.div`${props => `
     justify-content: ${props.justifyContent}
     align-items: ${props.alighItems}
-    margin: ${props.margin} `}
+    margin: ${props.margin} 
+    width: ${props.width}`}
+    
     display: flex;
 ;`
