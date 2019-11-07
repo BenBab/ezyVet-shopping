@@ -16,5 +16,6 @@ const mapDispatchToProps = dispatch => {
         deleteFromShoppingCart:(selectedItem) => dispatch(actions.deleteFromShoppingCart(selectedItem))
     };
   };
-
+  
+//assigns the relevant actions and redux state to be sent as props in the ShoppingCartList
 export default connect(mapStateToProps, mapDispatchToProps )(ShoppingCartList)

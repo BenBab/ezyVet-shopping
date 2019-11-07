@@ -14,5 +14,5 @@ const mapDispatchToProps = dispatch => {
     };
   };
 
-
+//assigns the relevant actions and redux state to be sent as props in the storeList
 export default connect(mapStateToProps, mapDispatchToProps)(StoreList)

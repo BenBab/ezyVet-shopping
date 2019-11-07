@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components'
 
-export function Button({ onClick, children, type}) {
+export function Button({ onClick, children, margin}) {
     return (
-        <StyledButton onClick={onClick}>
+        <StyledButton onClick={onClick} margin={margin || 0}>
             {children}
         </StyledButton>
     );
 }
-
 
 const StyledButton = styled.button`
     /* background-color: #0056b3; */
@@ -16,6 +15,8 @@ const StyledButton = styled.button`
     color: white; 
     padding: 5px 10px;
     border-radius: 5px;
+    border: none;
+    margin: ${props => props.margin};
 
     &:hover{
         background: #0056b3;

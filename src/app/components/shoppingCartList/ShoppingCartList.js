@@ -18,7 +18,7 @@ const ShoppingCartList = ({ shoppingCartList, shoppingCartCount, addToShoppingCa
                         <DollarIcon className={'fas fa-dollar-sign'}/>
                         {shoppingCartList.reduce((acc, curr) => {return acc + (curr.price * curr.quantity)},0).toFixed(2)}
                     </Flex>
-                    <Button>Checkout</Button>
+                    <Button margin={'20px 0'}>Checkout</Button>
                 </Container>
             </TotalPrice>
         </div>

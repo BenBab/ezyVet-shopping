@@ -12,11 +12,11 @@ export function* fetchStoreList() {
   yield put({ type: RENDER_STORE_LIST, storeList: data });
 }
 
-export function* loadToDoList() {
+export function* loadStoreList() {
   yield takeEvery(LOAD_STORE_LIST, fetchStoreList);
 }
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
-  yield all([ loadToDoList(), ]);
+  yield all([ loadStoreList(), ]);
 }
