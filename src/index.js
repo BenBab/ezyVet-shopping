@@ -5,6 +5,7 @@ import App from './app/App';
 import './index.css';
 import { composeWithDevTools } from 'redux-devtools-extension';
 // import * as serviceWorker from './serviceWorker';
+import { SnackbarProvider } from 'notistack';
 
 import { createStore, applyMiddleware } from 'redux';
 import { loadStoreFront } from './store/actions';
@@ -27,7 +28,9 @@ store.dispatch(loadStoreFront());
 render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <SnackbarProvider maxSnack={3}>
+        <App />
+      </SnackbarProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
