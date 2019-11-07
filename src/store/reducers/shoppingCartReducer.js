@@ -1,4 +1,4 @@
-import { ADD_TO_SHOPPING_CART, RM_FROM_SHOPPING_CART } from '../actions/shoppingCartActions';
+import { ADD_TO_SHOPPING_CART, MINUS_FROM_SHOPPING_CART, RM_FROM_SHOPPING_CART } from '../actions/shoppingCartActions';
 
 const initialState = {
   shoppingCartList: [],
@@ -29,15 +29,22 @@ const countItemsInCart = (list) => {
 
 export default function shoppingCartReducer(state = initialState, action) {
     switch (action.type) {
-    case ADD_TO_SHOPPING_CART:
-        const newShoppingList = updateShoppingList(state, action)
-        // debugger
-        return {
-            ...state,
-            shoppingCartList: newShoppingList,
-            shoppingCartCount: countItemsInCart(newShoppingList)
-        };
-
+    case ADD_TO_SHOPPING_CART:{
+      const newShoppingList = updateShoppingList(state, action)
+      return {
+          ...state,
+          shoppingCartList: newShoppingList,
+          shoppingCartCount: countItemsInCart(newShoppingList)
+      };
+    }
+    case MINUS_FROM_SHOPPING_CART:{
+      const newShoppingList = updateShoppingList(state, action)
+      return {
+          ...state,
+          shoppingCartList: newShoppingList,
+          shoppingCartCount: countItemsInCart(newShoppingList)
+      };
+    }
     case RM_FROM_SHOPPING_CART:
         return {
           ...state,

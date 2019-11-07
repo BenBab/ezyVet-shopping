@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import { Flex, Container} from '../UI/wrappers'
 
-function ShoppingCartItem({ name, img, quantity, price}) {
+function ShoppingCartItem({ name, img, quantity, price, item, addToShoppingCart, minusFromShoppingCart }) {
     const parsedQuantity = quantity <= 0 ? 0 : quantity
 
     return (
@@ -11,19 +11,25 @@ function ShoppingCartItem({ name, img, quantity, price}) {
                 <div>
                     <ItemImage style={{ backgroundImage: `url(${img})`}} alt='placeholder'/>
                 </div>
-                <div>{name}</div>
+                <ItemName>{name}</ItemName>
                 <Flex>
-                    <ChangeQuantityIcon className='fas fa-minus-circle'/>
+                    <ChangeQuantityIcon disabled={parsedQuantity === 0} className='fas fa-minus-circle' onClick={() => {
+                        if (parsedQuantity === 0) return;
+                        minusFromShoppingCart(item)}
+                    } 
+                    />
                     <Container textAlign='center'>
                         <div>{parsedQuantity}</div>
                         <small style={{fontSize:'10px'}}>Quantity</small>
                     </Container>
-                    <ChangeQuantityIcon className='fas fa-plus-circle'/>
+                    <ChangeQuantityIcon disabled={false} className='fas fa-plus-circle' onClick={() => addToShoppingCart(item)}/>
                 </Flex>
-                <div>
-                    ${(price * parsedQuantity).toFixed(2)}
-                </div>
+                <Container textAlign='center'>
+                    <div> ${(price * parsedQuantity).toFixed(2)}</div>
+                    <small style={{fontSize:'10px'}}>Price</small>
+                </Container>
             </Flex>
+            
         </CartItemWrapper>
     );
 }
@@ -39,6 +45,10 @@ const CartItemWrapper = styled.div`
     
 `;
 
+const ItemName = styled.div`
+    width: 180px;
+`;
+
 const ItemImage = styled.div`
     height: 150px;
     width: 150px;
@@ -51,4 +61,10 @@ const ItemImage = styled.div`
 
 const ChangeQuantityIcon = styled.i`
     margin: 0 20px;
+    color: ${props => props.disabled ? 'rgba(0,0,0,0.3)' : 'black'};
+
+    &:hover{
+        color: ${props => props.disabled ? 'rgba(0,0,0,0.3)' : '#0056b3'};
+        cursor: ${props => props.disabled ? 'initial' : 'pointer'};
+    }
 `;

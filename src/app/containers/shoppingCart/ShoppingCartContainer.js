@@ -11,7 +11,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addToShoppingCart: (selectedItem) => dispatch(actions.addToShoppingCart(selectedItem))
+        addToShoppingCart: (selectedItem) => dispatch(actions.addToShoppingCart(selectedItem)),
+        minusFromShoppingCart: (selectedItem) => dispatch(actions.minusFromShoppingCart(selectedItem)),
+
     };
   };
 
