@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import StoreFrontContainer from './containers/storeFront/StoreContainer';
 import ShoppingCartList from './containers/shoppingCart/ShoppingCartContainer'
 
-import AddToStore from './containers/storeFront/AddToStore';
+// import AddToStore from './containers/storeFront/AddToStore';
 
 import { Route, Switch } from "react-router-dom";
 import Header from './components/layout/Header'
@@ -18,7 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={StoreFrontContainer}/>
           <Route exact path="/shopping-cart" component={ShoppingCartList}/>
-          <Route exact path="/addToStore" component={AddToStore}/>
+          {/* <Route exact path="/addToStore" component={AddToStore}/> */}
         </Switch>
       </Container>
     </div>
