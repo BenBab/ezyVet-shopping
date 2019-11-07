@@ -18,7 +18,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 Its also hosted on netlify here
-...
+[https://ezyvet-hardwareshop.netlify.com/](https://ezyvet-hardwareshop.netlify.com/)
 
 You can view the various commits made along the way using git lens in VScode or other git history extensions in your IDE
 
